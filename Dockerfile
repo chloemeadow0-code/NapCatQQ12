@@ -1,9 +1,9 @@
 FROM mlikiowa/napcat-docker:latest
 
-# Rename original entrypoint (it knows how to start QQ)
+# Rename original entrypoint
 RUN mv /app/entrypoint.sh /app/entrypoint-original.sh 2>/dev/null || true
 
-# Copy our custom entrypoint (setup + delegates to original)
+# Copy our custom entrypoint
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 

@@ -1,4 +1,0 @@
-{
-  "plan": "docker",
-  "dockerfile": "Dockerfile"
-}

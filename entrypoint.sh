@@ -81,7 +81,11 @@ EOF
 echo "[entrypoint] webui.json & onebot11.json written."
 
 # ----------------------------------------------------------
-# 4. Start NapCat / QQ
+# 4. Start NapCat / QQ (delegate to original entrypoint)
 # ----------------------------------------------------------
 cd /app/napcat
-exec "$@"
+if [ -f /app/entrypoint-original.sh ]; then
+    exec bash /app/entrypoint-original.sh "$@"
+else
+    exec "$@"
+fi
